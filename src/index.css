@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Design System Variables */
+  --background: 0 0% 95%;      /* #F2F2F2 */
+  --foreground: 0 0% 10%;      /* #1A1A1A */
+  --card: 0 0% 100%;           /* White cards */
+  --card-foreground: 0 0% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 10%;
+  --primary: 228 100% 59%;     /* #2D55FF Accent Blue */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 90%;
+  --secondary-foreground: 0 0% 10%;
+  --muted: 0 0% 90%;
+  --muted-foreground: 0 0% 40%;
+  --accent: 4 100% 59%;        /* #FF3B30 Accent Red */
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 90%;
+  --input: 0 0% 90%;
+  --ring: 228 100% 59%;
+  --radius: 0rem; /* Sharp corners for minimalist feel */
+}
+
+.dark {
+  /* Minimal dark mode support if needed, but primary design is light/high-contrast */
+  --background: 0 0% 10%;
+  --foreground: 0 0% 95%;
+  --card: 0 0% 15%;
+  --card-foreground: 0 0% 95%;
+  --primary: 228 100% 65%;
+  --primary-foreground: 0 0% 100%;
+  --accent: 4 100% 65%;
+  --accent-foreground: 0 0% 100%;
+  --muted: 0 0% 20%;
+  --muted-foreground: 0 0% 60%;
+  --border: 0 0% 20%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif;
+  }
+  .font-mono {
+    font-family: 'Fira Code', monospace;
+  }
+}
+
+/* Custom Scrollbar for a premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.1);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,0.2);
+}
+
+/* Text Selection Color */
+::selection {
+  background: hsl(var(--primary) / 0.2);
+  color: inherit;
+}
+
+/* Utilities for visual depth */
+.shadow-sharp {
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.05);
+}
+.shadow-sharp-hover:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.08);
